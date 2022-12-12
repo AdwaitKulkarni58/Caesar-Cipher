@@ -14,17 +14,17 @@ def encrypt(text, shifts):
         newLetter = alphabet[newLetterIndex]
         newText += newLetter
     print(f"The encoded text is {newText}.")    
-    #TODO-2: Inside the 'encrypt' function, shift each letter of the 'text' forwards in the alphabet by the shift amount and print the encrypted text.  
-    #e.g. 
-    #plain_text = "hello"
-    #shift = 5
-    #cipher_text = "mjqqt"
-    #print output: "The encoded text is mjqqt"
 
-    ##HINT: How do you get the index of an item in a list:
-    #https://stackoverflow.com/questions/176918/finding-the-index-of-an-item-in-a-list
+def decrypt(text, shifts):
+    newText = ""
+    for letter in text:
+        currLetterIndex = alphabet.index(letter)
+        newLetterIndex = currLetterIndex - shifts
+        newLetter = alphabet[newLetterIndex]
+        newText += newLetter
+    print(f"The decoded text is {newText}.")
 
-    ##🐛Bug alert: What happens if you try to encode the word 'civilization'?🐛
-
-#TODO-3: Call the encrypt function and pass in the user inputs. You should be able to test the code and encrypt a message. 
-encrypt(text, shift)
+if direction == "encode":
+    encrypt(text, shift)
+if direction == "decode":
+    decrypt(text, shift)
